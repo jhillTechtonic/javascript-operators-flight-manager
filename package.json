@@ -13,6 +13,6 @@
     "lite-server": "^2.5.4"
   },
   "dependencies": {
-    "mocha": "^7.0.1"
+    "mocha": "^7.2.0"
   }
 }
