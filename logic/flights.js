@@ -1,47 +1,49 @@
 function Flights() {
     
-    // function calculateNumberOfFlights(passengers, capacity) {
-    
-    //     if ( (passengers < 0) || !(Number.isInteger(passengers))) {
-    //         throw new Error('The number of passengers must be a positive integer value');
-    //     }
-
-    //     if (capacity < 0 || !(Number.isInteger(capacity))) {
-    //         throw new Error('The capacity of the flight must be a positive integer value');
-    //     }
-        
-    //     var mod = passengers % capacity;
-        
-    //     var baseCount = Math.floor(passengers/capacity);
-        
-    //     if (mod == 0) {
-    //         return baseCount;
-    //     }else if (mod == passengers) {
-    //         return 1;
-    //     }else {
-    //         return baseCount + 1;
-    //     }
-    
-    // }
-
     function calculateNumberOfFlights(passengers, capacity) {
-        let flights;
-
-        if ((passengers < 0) || (!Number.isInteger(Number(passengers)))) {
-            throw new Error("The number of passengers must be a positive integer value")
+    
+        passengers=parseInt(passengers);
+        capacity = parseInt(capacity);
+        if ( (passengers < 0) || !(Number.isInteger(passengers))) {
+            throw new Error('The number of passengers must be a positive integer value');
         }
 
-        if ((capacity < 0) || (!Number.isInteger(Number(capacity)))) {
-            throw new Error("The capacity of the flight must be a positive integer value")
+        if (capacity < 0 || !(Number.isInteger(capacity))) {
+            throw new Error('The capacity of the flight must be a positive integer value');
         }
-
-        if (passengers % capacity == 0) {
-            flights = passengers/capacity;
-        } else {
-            flights = Math.floor(passengers/capacity) + 1;
+        
+        var mod = passengers % capacity;
+        
+        var baseCount = Math.floor(passengers/capacity);
+        
+        if (mod == 0) {
+            return baseCount;
+        }else if (mod == passengers) {
+            return 1;
+        }else {
+            return baseCount + 1;
         }
-        return flights;
+    
     }
+
+    // function calculateNumberOfFlights(passengers, capacity) {
+    //     let flights;
+
+    //     if ((passengers < 0) || (!Number.isInteger(Number(passengers)))) {
+    //         throw new Error("The number of passengers must be a positive integer value")
+    //     }
+
+    //     if ((capacity < 0) || (!Number.isInteger(Number(capacity)))) {
+    //         throw new Error("The capacity of the flight must be a positive integer value")
+    //     }
+
+    //     if (passengers % capacity == 0) {
+    //         flights = passengers/capacity;
+    //     } else {
+    //         flights = Math.floor(passengers/capacity) + 1;
+    //     }
+    //     return flights;
+    // }
 
     function checkAircraftRevision(limit, distances) {
         var totalDistance = distances.reduce(function(a,b){ return a + b; }, 0);
