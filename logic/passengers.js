@@ -1,3 +1,4 @@
+"use strict";
 function Passengers() {
     function checkFlightCapacity(capacity, passengers) {
         var totalPassengers = passengers.reduce(function(a,b) { return a + b; }, 0);
@@ -23,7 +24,7 @@ function Passengers() {
         var regularInEconomy = 0;
         var regularLeftover = 0;
 
-        for (i=0;i<vipPassengers;i++) {
+        for (var i=0;i<vipPassengers;i++) {
             if (openBusinessSeats > 0) {
                 vipInBusiness++;
                 vipSeated++;
@@ -41,7 +42,7 @@ function Passengers() {
         // console.log("vipInBusiness is " + vipInBusiness);
         // console.log("openBusinessSeats is " + openBusinessSeats);
 
-        for (i=0;i<regularPassengers;i++) {
+        for (var i=0;i<regularPassengers;i++) {
             if (openBusinessSeats > 0) {
                 regularInBusiness++;
                 regularSeated++;
@@ -54,7 +55,7 @@ function Passengers() {
                 regularLeftover++;
             }
         }
-        
+
         // debug; confirming value is expected
         // console.log("regularInBusiness is " + regularInBusiness);
 
