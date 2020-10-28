@@ -1,10 +1,11 @@
 "use strict";
 function Prices() {
     function calculateFinalPrice(basePrice,passAdj,flightAdj) {
-        var passPct = passAdj / 100;
-        var flightPct = flightAdj / 100;
+        var passPct = Number.parseFloat(passAdj) / 100;
+        var flightPct = Number.parseFloat(flightAdj) / 100;
+        basePrice = Number.parseFloat(basePrice);
         var finalPrice = basePrice + (passPct * basePrice) + (flightPct * (basePrice + (basePrice * passPct)));
-        return finalPrice;
+        return Number.parseFloat(finalPrice).toFixed(2);
     }
 
     function calculateDefaultFinalPrice (basePrice, passenger, flight) {
@@ -14,6 +15,7 @@ function Prices() {
         var businessAdjustment = 0.10;
         var passengerAdjustment = 0;
         var flightAdjustment = 0;
+        basePrice = Number.parseFloat(basePrice);
 
         switch (passenger.toUpperCase()) {
             case "VIP":
@@ -37,11 +39,11 @@ function Prices() {
                 throw new Error('Not a valid flight type');
         }
         
-        return (basePrice + (passengerAdjustment * basePrice)) + (flightAdjustment * (basePrice + (passengerAdjustment * basePrice)));
+        return Number(basePrice + (passengerAdjustment * basePrice)) + (flightAdjustment * (basePrice + (passengerAdjustment * basePrice)));
     }
 
     function calculateTotalFinalPrice(seatCount, passenger, flight, basePrice) {
-        return seatCount * calculateDefaultFinalPrice(basePrice, passenger, flight);
+        return Number.parseFloat(seatCount * calculateDefaultFinalPrice(basePrice, passenger, flight)).toFixed(2);
     }
     return {calculateFinalPrice, calculateDefaultFinalPrice, calculateTotalFinalPrice};
 }

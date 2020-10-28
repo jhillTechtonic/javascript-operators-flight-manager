@@ -15,7 +15,7 @@ function Util() {
     }
     
     function checkInput(input) {
-        if (Math.number(input) === NaN) {
+        if (isNaN(input)) {
             throw new Error('The input should be a number');
         }
         if (!(input)) {
